@@ -1,3 +1,4 @@
+// @ts-nocheck
 import "./App.css";
 import {
   BrowserRouter,
@@ -11,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCoursesInCart } from "./features/cart/cartSlice";
 import { setInitialLoadUser } from "./features/user/userSlice";
 import { Snackbar } from "@mui/material";
+import Spinner from "./components/Spinner/Spinner";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const Login = React.lazy(() => import("./pages/Login"));
@@ -36,7 +38,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <React.Suspense fallback={<>...</>}>
+        <React.Suspense fallback={<Spinner/>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

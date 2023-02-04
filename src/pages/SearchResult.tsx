@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Box,
   Container,
@@ -6,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import DefaultLayout from "../components/DefaultLayout";
 import FilterListIcon from "@mui/icons-material/FilterList";
@@ -19,6 +20,7 @@ import {
   getCourseByName,
 } from "../features/course/courseSlice";
 import { clearState as clearFilterState } from "../features/filter/filterSlice";
+import SearchResultSkeleton from "../components/SearchResults/SearchResultSkeleton";
 const SearchResult = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,13 +30,13 @@ const SearchResult = () => {
     (state: any) => state.course
   );
   const filterState = useSelector((state: any) => state.filter);
+  const { loading } = useSelector((state: any) => state.alert);
 
   useEffect(() => {
     dispatch(getCourseByName(query));
     dispatch(clearFilterState());
     // console.log('This is firing for query')
   }, [query]);
-
 
   useEffect(() => {
     dispatch(getFilteredCourses({ name: query, filterState: filterState }));
@@ -99,11 +101,15 @@ const SearchResult = () => {
           />
         </Drawer>
 
-        <Stack divider={<Divider />} spacing={2} sx={{ width: "100%" }}>
-          {courses.map((course, index) => (
-            <CourseCard key={course._id} course={course} />
-          ))}
-        </Stack>
+        {loading ? (
+          <SearchResultSkeleton />
+        ) : (
+          <Stack divider={<Divider />} spacing={2} sx={{ width: "100%" }}>
+            {courses.map((course, index) => (
+              <CourseCard key={course._id} course={course} />
+            ))}
+          </Stack>
+        )}
       </Container>
     </DefaultLayout>
   );

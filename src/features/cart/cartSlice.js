@@ -6,12 +6,12 @@ const initialState = {
   cartItems: [],
   amount: 0,
   total: 0,
-  errorMessage:"",
+  errorMessage: "",
   isError: false,
-  isSuccess:false,
+  isSuccess: false,
 };
 
-const url = "http://localhost:8080/users";
+const url = "https://passport-findemy.onrender.com/users";
 
 export const getCoursesInCart = createAsyncThunk(
   "cart/getCoursesInCart",
@@ -35,12 +35,9 @@ export const addCourseToCart = createAsyncThunk(
   "cart/addCourseToCart",
   async ({ id, course }, { dispatch, rejectWithValue }) => {
     try {
-      dispatch(startLoading());
       const res = await axios.post(`${url}/enrollCourse`, { id, course });
-      dispatch(stopLoading());
       return res.data;
     } catch (err) {
-      dispatch(stopLoading());
       if (err.message == "Network Error") {
         return rejectWithValue(err.message);
       }
@@ -65,7 +62,7 @@ export const removeFromCart = createAsyncThunk(
       return rejectWithValue(err.response.data.error);
     }
   }
-)
+);
 
 export const emptyCart = createAsyncThunk(
   "cart/emptyCart",
@@ -83,21 +80,23 @@ export const emptyCart = createAsyncThunk(
       return rejectWithValue(err.response.data.error);
     }
   }
-)
+);
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     calculateTotal: function (state) {
-      state.total = state.cartItems.reduce((acc, item) => {
-        return acc + item.discountedPrice;
-      },0).toFixed(2);
+      state.total = state.cartItems
+        .reduce((acc, item) => {
+          return acc + item.discountedPrice;
+        }, 0)
+        .toFixed(2);
     },
-    clearState:(state) =>{
+    clearState: (state) => {
       state.isError = false;
       state.isSuccess = false;
-    }
+    },
   },
   extraReducers: {
     [getCoursesInCart.pending]: (state) => {
@@ -117,7 +116,7 @@ const cartSlice = createSlice({
       state.isSuccess = false;
     },
     [addCourseToCart.fulfilled]: (state, action) => {
-      state.isSuccess = true
+      state.isSuccess = true;
       state.cartItems = action.payload;
       state.amount = action.payload.length;
     },
@@ -130,7 +129,7 @@ const cartSlice = createSlice({
       state.isSuccess = false;
     },
     [removeFromCart.fulfilled]: (state, action) => {
-      state.isSuccess = true
+      state.isSuccess = true;
       state.cartItems = action.payload;
       state.amount = action.payload.length;
     },
@@ -143,7 +142,7 @@ const cartSlice = createSlice({
       state.isSuccess = false;
     },
     [emptyCart.fulfilled]: (state, action) => {
-      state.isSuccess = true
+      state.isSuccess = true;
       state.cartItems = action.payload;
       state.amount = action.payload.length;
       state.total = 0;
@@ -151,10 +150,9 @@ const cartSlice = createSlice({
     [emptyCart.rejected]: (state, action) => {
       state.isError = true;
       state.errorMessage = action.payload;
-    }
-
+    },
   },
 });
 
-export const {calculateTotal,clearState} = cartSlice.actions;
+export const { calculateTotal, clearState } = cartSlice.actions;
 export default cartSlice.reducer;

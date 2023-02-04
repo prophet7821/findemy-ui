@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Box,
   Container,
@@ -8,14 +9,20 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import CartAccordion from "../components/Checkout/CartAccordion";
 import CountrySelect from "../components/Cart/CountrySelect";
 import CheckoutSummaryCard from "../components/Checkout/CheckoutSummaryCard";
 import DefaultLayout from "../components/DefaultLayout";
 import countries from "../assets/countries";
+import { emptyCart } from "../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const { userInfo } = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     country: "",
     state: "",
@@ -27,10 +34,16 @@ const Checkout = () => {
 
   const [states, setStates] = useState([]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/checkoutComplete");
+    dispatch(emptyCart(userInfo["_id"]))
+  };
+
   return (
     <DefaultLayout>
       <Container maxWidth="lg">
-        <Box component="form">
+        <Box component="form" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid
               item
@@ -81,6 +94,10 @@ const Checkout = () => {
                 <Grid item xs={5} sx={{ m: 1 }}>
                   <FormControl fullWidth>
                     <CountrySelect
+                      displayEmpty
+                      required
+                      inputProps={{ "aria-label": "Country" }}
+                      value={formState.country}
                       onChange={(e) => {
                         setFormState({
                           ...formState,
@@ -93,10 +110,6 @@ const Checkout = () => {
 
                         setStates(country?.states);
                       }}
-                      displayEmpty
-                      required
-                      inputProps={{ "aria-label": "Country" }}
-                      value={formState.country}
                     >
                       <MenuItem disabled value="">
                         <em>Please Select</em>

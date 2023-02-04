@@ -1,14 +1,17 @@
+// @ts-nocheck
+
 import { Box, Container, Snackbar, Typography, Alert } from "@mui/material";
 import Carousel from "react-grid-carousel";
 import CarouselCard from "./CarouselCard";
-import data from "../../assets/data";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAllCourses } from "../../features/course/courseSlice";
+import CarouselCardSkeleton from "./CarouselCardSkeleton";
 
 const CarouselComponent = () => {
   const dispatch = useDispatch();
   const { courses, isError } = useSelector((state: any) => state.course);
+  const { loading } = useSelector((state: any) => state.alert);
 
   const [open, setOpen] = useState(false);
 
@@ -57,29 +60,34 @@ const CarouselComponent = () => {
             Students are viewing
           </Typography>
         </Box>
+
         <Box sx={{ mt: 2 }}>
-          <Carousel
-            cols={5}
-            gap={5}
-            responsiveLayout={[
-              {
-                breakpoint: 1200,
-                cols: 3,
-              },
-              {
-                breakpoint: 990,
-                cols: 2,
-              },
-            ]}
-          >
-            {courses.map((course, index) => {
-              return (
-                <Carousel.Item key={course._id}>
-                  <CarouselCard {...course} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
+          {loading ? (
+            <CarouselCardSkeleton />
+          ) : (
+            <Carousel
+              cols={5}
+              gap={5}
+              responsiveLayout={[
+                {
+                  breakpoint: 1200,
+                  cols: 3,
+                },
+                {
+                  breakpoint: 990,
+                  cols: 2,
+                },
+              ]}
+            >
+              {courses.map((course, index) => {
+                return (
+                  <Carousel.Item key={course._id}>
+                    <CarouselCard {...course} />
+                  </Carousel.Item>
+                );
+              })}
+            </Carousel>
+          )}
         </Box>
       </Container>
     </>

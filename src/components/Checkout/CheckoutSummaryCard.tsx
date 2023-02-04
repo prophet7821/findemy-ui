@@ -1,26 +1,19 @@
+// @ts-nocheck
 import {Divider, Grid, Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 import CheckoutButton from "../Cart/CheckoutButton";
 import { useSelector, useDispatch } from "react-redux";
 import { calculateTotal } from "../../features/cart/cartSlice";
 import { useNavigate} from "react-router-dom";
-import {emptyCart} from "../../features/cart/cartSlice";
+
 
 const CheckoutSummaryCard = ({formState,setFormState}) => {
-  const {userInfo} = useSelector((state:any)=>state.user)
-  const { cartItems, amount, total,isSuccess,isError} = useSelector((state: any) => state.cart);
+  const { amount, total} = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(calculateTotal());
   }, [amount]);
-
-
-  const handleSubmit = ()=>{
-    dispatch(emptyCart(userInfo['_id']));
-    navigate('/checkoutComplete')
-  }
 
   return (
     <Stack sx={{ width: "100%", m: 1 }} spacing={2}>
@@ -56,7 +49,7 @@ const CheckoutSummaryCard = ({formState,setFormState}) => {
           <CheckoutButton
             sx={{ width: "100%" }}
             variant="outlined"
-            onClick={handleSubmit}
+            type="submit"
             disableRipple
             disableElevation
           >

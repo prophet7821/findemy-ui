@@ -9,7 +9,7 @@ const initialState = {
   errorMessage: "",
 };
 
-const url = "http://localhost:8080/users";
+const url = "https://passport-findemy.onrender.com/users";
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",

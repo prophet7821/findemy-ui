@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Button, styled } from "@mui/material";
 
 const SignUpButton = styled(Button)({

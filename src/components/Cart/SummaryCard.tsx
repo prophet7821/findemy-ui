@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import CheckoutButton from "./CheckoutButton";

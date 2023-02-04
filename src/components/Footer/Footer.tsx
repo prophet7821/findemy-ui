@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { Button, Container, Grid, Typography } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import FooterInternationalizationalButton from "./FooterInternationalizationButton";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white w-100 absolute">
+    <footer className="bg-black text-white w-100">
       <Container maxWidth="xl">
         <Grid container>
           {/* First Row */}
@@ -131,7 +132,7 @@ const Footer = () => {
             sx={{ display: { xs: "flex",lg:"none" } }}
           >
             <Grid container m={2} spacing={2}>
-              <Grid item xs={2}>
+              <Grid item xs={9}>
                 <Typography
                   variant="h6"
                   noWrap
@@ -153,7 +154,7 @@ const Footer = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={10} md={2}>
+          <Grid item xs={10} md={4} lg={2}>
             <Grid
               container
               m={2}
@@ -172,6 +173,8 @@ const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
+
+
         </Grid>
       </Container>
     </footer>

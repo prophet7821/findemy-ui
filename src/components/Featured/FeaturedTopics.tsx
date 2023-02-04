@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import MoreCoursesButton from "./MoreCoursesButton";
@@ -13,10 +14,10 @@ const FeaturedTopics = () => {
             sx={{
               fontWeight: "700",
               fontSize: {
-                xs: "1.5rem",
-                sm: "1.8rem",
-                md: "2.4rem",
-                lg: "3.2rem",
+                xs: "0.75rem",
+                sm: "1rem",
+                md: "2rem",
+                lg: "3rem",
               },
               lineHeight: "1.2",
               letterSpacing: "-0.05rem",
@@ -25,12 +26,12 @@ const FeaturedTopics = () => {
             Featured Topics By Category
           </Typography>
         </Box>
-        <Grid container spacing={2}>
-          <Grid item xs={10} sm={6} md={3}>
-            <Grid container direction="column" m={2} spacing={2}>
+
+        <Grid container spacing={1}>
+          <Grid item xs={9} sm={5} md={3}>
+            <Grid container direction="column" m={1} spacing={2}>
               <Grid
                 item
-                xs={2}
                 sx={{
                   mb: "1.6rem",
                 }}
@@ -45,7 +46,7 @@ const FeaturedTopics = () => {
                   Development
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -62,7 +63,7 @@ const FeaturedTopics = () => {
                   36,354,994 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -79,7 +80,7 @@ const FeaturedTopics = () => {
                   11,415,615 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -98,7 +99,6 @@ const FeaturedTopics = () => {
               </Grid>
               <Grid
                 item
-                xs={2}
                 sx={{ mt: 3, display: { xs: "none", md: "flex" } }}
               >
                 <MoreCoursesButton variant="outlined">
@@ -106,7 +106,7 @@ const FeaturedTopics = () => {
                     sx={{
                       fontWeight: 700,
                       fontSize: {
-                        md:"0.6rem",
+                        md: "0.6rem",
                         lg: "0.8rem",
                       },
                     }}
@@ -118,11 +118,10 @@ const FeaturedTopics = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3}>
-            <Grid container direction="column" m={2} spacing={2}>
+          <Grid item xs={10} sm={5} md={3}>
+            <Grid container direction="column" m={1} spacing={2}>
               <Grid
                 item
-                xs={2}
                 sx={{
                   mb: "1.6rem",
                 }}
@@ -137,7 +136,7 @@ const FeaturedTopics = () => {
                   Business
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -154,7 +153,7 @@ const FeaturedTopics = () => {
                   1,195,282 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -171,7 +170,7 @@ const FeaturedTopics = () => {
                   5,977,561 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -191,11 +190,10 @@ const FeaturedTopics = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3}>
-            <Grid container direction="column" m={2} spacing={2}>
+          <Grid item xs={10} sm={5} md={3}>
+            <Grid container direction="column" m={1} spacing={2}>
               <Grid
                 item
-                xs={2}
                 sx={{
                   mb: "1.6rem",
                 }}
@@ -210,7 +208,7 @@ const FeaturedTopics = () => {
                   IT and Software
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item >
                 <Typography
                   noWrap
                   component="a"
@@ -227,7 +225,7 @@ const FeaturedTopics = () => {
                   6,078,244 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -244,7 +242,7 @@ const FeaturedTopics = () => {
                   10,931,066 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -264,8 +262,8 @@ const FeaturedTopics = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3}>
-            <Grid container direction="column" m={2} spacing={2}>
+          <Grid item xs={10} sm={5} md={3}>
+            <Grid container direction="column" m={1} spacing={2}>
               <Grid
                 item
                 xs={2}
@@ -283,7 +281,7 @@ const FeaturedTopics = () => {
                   Design
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -300,7 +298,7 @@ const FeaturedTopics = () => {
                   10,909,736
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"
@@ -317,7 +315,7 @@ const FeaturedTopics = () => {
                   3,381,052 students
                 </Typography>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item>
                 <Typography
                   noWrap
                   component="a"

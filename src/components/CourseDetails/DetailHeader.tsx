@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Alert, Container, Grid, Snackbar, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import BestsellerComponent from "../Carousel/BestSellerChip";

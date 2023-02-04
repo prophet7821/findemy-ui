@@ -10,7 +10,7 @@ const initialState = {
   details:{}
 };
 
-const url = "http://localhost:8080/courses";
+const url = "https://passport-findemy.onrender.com/courses";
 
 
 
