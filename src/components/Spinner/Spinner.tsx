@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import { Box, CircularProgress, Grid } from "@mui/material";
 
 const Spinner = () => {

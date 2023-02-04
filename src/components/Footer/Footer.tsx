@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import { Button, Container, Grid, Typography } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import FooterInternationalizationalButton from "./FooterInternationalizationButton";

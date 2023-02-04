@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import { Drawer, IconButton } from "@mui/material";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";

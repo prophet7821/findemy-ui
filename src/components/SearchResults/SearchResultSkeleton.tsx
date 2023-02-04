@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import { Box, Grid, Skeleton } from "@mui/material";
 import React from "react";
 

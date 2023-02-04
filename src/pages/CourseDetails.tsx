@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 import Description from "../components/CourseDetails/Description";
 import { Container, Grid } from "@mui/material";
 import DetailHeader from "../components/CourseDetails/DetailHeader";

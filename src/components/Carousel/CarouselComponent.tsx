@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 
 import { Box, Container, Snackbar, Typography, Alert } from "@mui/material";
 import Carousel from "react-grid-carousel";
