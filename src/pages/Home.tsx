@@ -8,10 +8,10 @@ import FeaturedTopics from "../components/Featured/FeaturedTopics";
 const Home = () => {
   return (
     <DefaultLayout>
-      <>
+      <div>
         <CarouselComponent />
         <FeaturedTopics />
-      </>
+      </div>
     </DefaultLayout>
   );
 };
