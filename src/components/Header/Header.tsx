@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import * as React from "react";
 
 import { Box, Toolbar, IconButton, Typography, Container } from "@mui/material";

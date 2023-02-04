@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import { Typography } from "@mui/material";
 import React from "react";
 

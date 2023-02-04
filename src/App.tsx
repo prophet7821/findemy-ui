@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import "./App.css";
 import {
   BrowserRouter,

@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import React from 'react'
 import {Button,styled} from '@mui/material'
 

@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import {Button,styled} from '@mui/material'
 
 const InternationalizationButton = styled(Button)({

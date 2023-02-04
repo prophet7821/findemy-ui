@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import MoreCoursesButton from "./MoreCoursesButton";

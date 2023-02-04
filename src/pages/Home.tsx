@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import CarouselComponent from "../components/Carousel/CarouselComponent";

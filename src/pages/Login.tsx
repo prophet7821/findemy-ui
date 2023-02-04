@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Alert,

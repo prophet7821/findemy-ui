@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import React from 'react'
 import {TextField,styled} from '@mui/material'
 
