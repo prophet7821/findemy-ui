@@ -105,7 +105,7 @@ const cartSlice = createSlice({
     },
     [getCoursesInCart.fulfilled]: (state, action) => {
       state.cartItems = action.payload;
-      state.amount = action.payload.length;
+      state.amount = action.payload?.length;
     },
     [getCoursesInCart.rejected]: (state, action) => {
       state.isError = true;
@@ -118,7 +118,7 @@ const cartSlice = createSlice({
     [addCourseToCart.fulfilled]: (state, action) => {
       state.isSuccess = true;
       state.cartItems = action.payload;
-      state.amount = action.payload.length;
+      state.amount = action.payload?.length;
     },
     [addCourseToCart.rejected]: (state, action) => {
       state.isError = true;
@@ -131,7 +131,7 @@ const cartSlice = createSlice({
     [removeFromCart.fulfilled]: (state, action) => {
       state.isSuccess = true;
       state.cartItems = action.payload;
-      state.amount = action.payload.length;
+      state.amount = action.payload?.length;
     },
     [removeFromCart.rejected]: (state, action) => {
       state.isError = true;
@@ -144,7 +144,7 @@ const cartSlice = createSlice({
     [emptyCart.fulfilled]: (state, action) => {
       state.isSuccess = true;
       state.cartItems = action.payload;
-      state.amount = action.payload.length;
+      state.amount = action.payload?.length;
       state.total = 0;
     },
     [emptyCart.rejected]: (state, action) => {

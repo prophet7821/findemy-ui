@@ -18,7 +18,7 @@ const SearchBox = () => {
   const navigate = useNavigate();
 
   const handleOnKeyPress = (e) => {
-    if ((e.target as HTMLInputElement).value.length > 2)
+    if ((e.target as HTMLInputElement).value?.length > 2)
 
     if (e.key === "Enter") {
       navigate({
