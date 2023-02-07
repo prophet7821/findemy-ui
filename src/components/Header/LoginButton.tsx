@@ -1,4 +1,4 @@
-// @ts-nocheck
+// 
 import { Button, styled } from "@mui/material";
 
 const LoginButton = styled(Button)({

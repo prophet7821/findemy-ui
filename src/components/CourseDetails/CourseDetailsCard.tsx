@@ -1,4 +1,4 @@
-// @ts-nocheck
+// 
 import { Alert, Grid, Snackbar, Stack, Typography } from "@mui/material";
 import InternationalizationButton from "../Header/InternatonalizationButton";
 import BuyButton from "./BuyButton";

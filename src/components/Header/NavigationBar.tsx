@@ -1,4 +1,4 @@
-// @ts-nocheck
+// 
 import { AppBar, styled } from "@mui/material";
 
 const NavigationBar = styled(AppBar)({
